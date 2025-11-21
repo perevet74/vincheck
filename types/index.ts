@@ -111,7 +111,7 @@ export interface VINFullReport {
 
 // Payment Types
 export interface MoMoPaymentRequest {
-  amount: number
+  amount: string // MTN MoMo API expects amount as string
   currency: string
   externalId: string
   payer: {

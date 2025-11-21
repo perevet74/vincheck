@@ -80,7 +80,7 @@ export async function GET(request: NextRequest) {
         plantState: getValue('Plant State'),
         series: getValue('Series'),
         vehicleType: getValue('Vehicle Type'),
-        imageUrl: null, // Will be set below
+        imageUrl: undefined, // Will be set below
       }
 
       // Get vehicle photos from actual records (insurance, service, etc.)
@@ -92,7 +92,7 @@ export async function GET(request: NextRequest) {
       
       if (vehicleHistoryApiKey) {
         try {
-          // Call VehicleDatabases API or similar to get actual photos
+          //c69ea410c65f11f088300242ac120002
           const historyUrl = `https://api.vehicledatabases.com/v1/vin/${cleanedVin}/photos`
           const photosResponse = await fetch(historyUrl, {
             method: 'GET',

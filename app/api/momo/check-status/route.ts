@@ -96,10 +96,13 @@ export async function GET(request: NextRequest) {
             })
             .eq('id', existingSub.id)
         } else {
+          if (!payment.user_id) {
+            throw new Error('Payment user_id is required for subscription')
+          }
           await supabase
             .from('subscriptions')
             .insert({
-              user_id: payment.user_id!,
+              user_id: payment.user_id,
               end_date: endDate.toISOString(),
               status: 'active',
               payment_id: payment.id,

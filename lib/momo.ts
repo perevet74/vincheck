@@ -117,7 +117,7 @@ export async function checkPaymentStatus(
       partyIdType: data.payer.partyIdType,
     },
     status: data.status,
-    reason: data.reason,
+    reason: data.reason || undefined,
   }
 }
 
